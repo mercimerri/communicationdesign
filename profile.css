@@ -1,0 +1,62 @@
+body{
+  margin:0px;
+  background-image: url('background.png');
+  background-size: 1280px 800px;
+}
+
+.my_box {
+  width: 200px;
+  height: 135px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 110px;
+  padding: 3px 3px 3px 3px; /* 상, 우, 좌, 하 */
+  text-align: left; /* left, center, right */
+  border: #676868 2px solid;
+  background-color: #8DCEAB;
+  /* 테두리 각각의 색상 및 두께를 지정할때 사용합니다
+  border-right: #888888 1px solid;
+  border-left: #888888 1px solid;
+  border-top: #888888 1px solid;
+  border-bottom: #888888 1px solid;
+  */
+  /* 글꼴을 따로 지정할 수 있다.
+  font-family: 궁서, Gulim, 'Times New Roman';
+  */
+  color: #676868;
+  font-size: 10pt;
+  font-family: YDIYGO340;
+  font-weight: normal; /* normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900 */
+  font-style: normal; /* normal, italic, oblique */;
+}
+
+.my_box2 {
+  width: 90px;
+  height: 145px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 30px;
+  padding: 3px 3px 3px 3px; /* 상, 우, 좌, 하 */
+  text-align: center; /* left, center, right */
+  border: #676868 2px solid;
+  background-color: #8DCEAB;
+  /* 테두리 각각의 색상 및 두께를 지정할때 사용합니다
+  border-right: #888888 1px solid;
+  border-left: #888888 1px solid;
+  border-top: #888888 1px solid;
+  border-bottom: #888888 1px solid;
+  */
+  /* 글꼴을 따로 지정할 수 있다.
+  font-family: 궁서, Gulim, 'Times New Roman';
+  */
+  color: #676868;
+  font-size: 10pt;
+  font-family: YDIYGO340;
+  font-weight: normal; /* normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900 */
+  font-style: normal; /* normal, italic, oblique */;
+}
+
+#canvas {
+  margin-top: 38px;
+  margin-left: 113px;
+}
