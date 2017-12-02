@@ -7,9 +7,9 @@
   <link rel="stylesheet" type="text/css" href="static/profile.css">
 </head>
 <body>
-  <form method="post" action="/">
-    <textarea id="test" class="my_box"></textarea>
-    <input type="submit" id="checkText" class='my_box2' value="탕에 들어가기">
+  <form method="post">
+    <input type="text" name="word" class="my_box">
+    <input type="submit" class="my_box2" value="탕에 들어가기">
   </form>
   <br>
   <canvas id="canvas" width="1077" height="503"></canvas>
@@ -51,7 +51,11 @@
       bgContext.font = '80pt YDIYGO340';
       //  bgContext.fillText(keyword, Math.random() * canvas.width, Math.random() * canvas.height);
       {% for word in words %}
-        bgContext.fillText("{{word[0]}}", Math.random() * 100, 100 * ({{loop.index}}));
+      if ("{{word}}".length > 5){
+        bgContext.fillText("{{word}}", Math.random() * 150, 95 * ({{loop.index}}));
+      } else {
+        bgContext.fillText("{{word}}", Math.random() * 600, 95 * ({{loop.index}}));
+      }
       {% endfor %}
       clear();
       getCoords();
