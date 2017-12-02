@@ -7,15 +7,18 @@
   <link rel="stylesheet" type="text/css" href="static/profile.css">
 </head>
 <body>
-  <textarea id="test" class="my_box"></textarea>
-  <button id="checkText" class='my_box2' >탕에 들어가기</button><br>
+  <form method="post" action="/">
+    <textarea id="test" class="my_box"></textarea>
+    <input type="submit" id="checkText" class='my_box2' value="탕에 들어가기">
+  </form>
+  <br>
   <canvas id="canvas" width="1077" height="503"></canvas>
   <!-- <body bgcolor="#8DCEAB"> -->
   <script type="text/javascript">
   var word_count = 0;
 
-  function Banner(arg) {
-    var keyword = arg || "";
+  function Banner() {
+    // var keyword = arg || "";
     var canvas;
     var context;
     var bgCanvas;
@@ -30,14 +33,6 @@
     var mouseOnScreen = false;
     var itercount = 0;
     var itertot = 20;
-    this.add_word = function(word) {
-      keyword = word || "";
-      bgContext.fillText(keyword, 100, 100 * (word_count + 1));
-      word_count += 1;
-      clear();
-      getCoords();
-    }
-
     this.initialize = function(canvas_id) {
       canvas = document.getElementById(canvas_id);
       context = canvas.getContext('2d');
@@ -55,17 +50,9 @@
       bgContext.fillStyle = "#000000";
       bgContext.font = '80pt YDIYGO340';
       //  bgContext.fillText(keyword, Math.random() * canvas.width, Math.random() * canvas.height);
-
-      bgContext.fillText(keyword, Math.random() * 10, 100 * (word_count + 1));
-      word_count += 1;
-      bgContext.fillText("testword", Math.random() * 10, 100 * (word_count + 1));
-      clear();
-      getCoords();
-    }
-
-    var add_word = function() {
-      bgContext.fillText(keyword, 100, 100 * (word_count + 1));
-      word_count += 1;
+      {% for word in words %}
+        bgContext.fillText("{{word[0]}}", Math.random() * 100, 100 * ({{loop.index}}));
+      {% endfor %}
       clear();
       getCoords();
     }
@@ -159,17 +146,13 @@
       context.fill();
     }
   }
-
-  $("#checkText").click(function(e) {
-    var key = $("#test").val();
-    if(word_count == 0) {
-      window.banner = new Banner(key);
-      banner.initialize("canvas");
-    } else {
-      banner.add_word(key)
-      // window.banner.add_word();
-    }
-  });
+  window.banner = new Banner();
+  banner.initialize("canvas");
+  // $("#checkText").click(function(e) {
+  //   var key = $("#test").val();
+  //   window.banner = new Banner(key);
+  //   banner.initialize("canvas");
+  // });
   </script>
  </body>
 </html>
