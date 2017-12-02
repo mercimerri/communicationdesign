@@ -14,4 +14,5 @@ def get_words(how_many):
 def add_words(word):
     cnx = mysql.connector.connect(user=DB_USER, host="127.0.0.1", database="sehantang", password=DB_PASS)
     cur = cnx.cursor()
-    cur.execute("insert into words (word) values ('%s')")
+    cur.execute("insert into words (word) values ('%s')"% word)
+    cnx.commit()
